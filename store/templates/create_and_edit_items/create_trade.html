@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <form class="site-form has-background-light" method="post"
+          hx-post="{% url 'store:create_trade' %}"
+          hx-target="#count"
+          hx-trigger="click from:#submit_all"
+          action="" id="sku_form"
+          enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container-sm">
+            <div class="row justify-content-center">
+                <div class="col-9 col-md-6 col-lg-4">
+                    <div class="bg-transparent text-light form-control">
+                        {{ trade_form.as_p }}
+                        <button type="submit" id="submit_all" class="btn btn-info mt-3"><span class="title">Submit</span>
+                        </button>
+                        <a href="{% url 'store:home' %}"
+                            hx-get="{% url 'store:home' %}"
+                            hx-target="#count"
+                            hx-push-url="true"
+                         type="button" class="btn btn-warning mt-3"><span
+                                class="title">Back</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

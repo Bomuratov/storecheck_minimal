@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    /*color: var(--tg-theme-text-color);*/
+    /*background: var(--tg-theme-bg-color);*/
+}
+
+.container_sku {
+    margin-top: 30px;
+    max-width: 390px;
+}
+
+.inner_sku {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px 200px;
+}
+
+.img_sku {
+    width: 130px;
+    height: 100px;
+    object-fit: contain;
+    margin-top: 20px;
+}
+
+.item {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    background: rgb(248, 168, 24);
+    border-radius: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    transition: background .2s linear;
+}
+
+.btn:hover {
+    background: lightgreen;
+}
+
+.usercard {
+    text-align: center;
+}
+
+/*var(--tg-theme-bg-color)*/
+/*var(--tg-theme-text-color)*/
+/*var(--tg-theme-hint-color)*/
+/*var(--tg-theme-link-color)*/
+/*var(--tg-theme-button-color)*/
+/*var(--tg-theme-button-text-color)*/
+
+.cat {
+    margin: 4px;
+    background-color: #104068;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    overflow: hidden;
+    float: left;
+}
+
+.cat label {
+    float: left;
+    line-height: 3.0em;
+    width: 8.0em;
+    height: 3.0em;
+}
+
+.cat label span {
+    text-align: center;
+    padding: 3px 0;
+    display: block;
+}
+
+.cat label input {
+    position: absolute;
+    display: none;
+    color: #fff !important;
+}
+
+/* selects all of the text within the input element and changes the color of the text */
+.cat label input + span {
+    color: #fff;
+}
+
+
+/* This will declare how a selected input will look giving generic properties */
+.cat input:checked + span {
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+}
+
+.action input:checked + span {
+    background-color: #F75A1B;
+}

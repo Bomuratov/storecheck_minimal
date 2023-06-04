@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <form action="" enctype="multipart/form-data" method="post"
+    hx-post="{% url 'store:home' %}"
+    hx-target="#count"
+    hx-trigger="click from:#submit_all">{% csrf_token %}
+        <div class="container">
+            <div class="row text-center">
+                {% for sk in skus %}
+                    {% if user == sk.user %}
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-2 mb-4 ">
+                        {% if sk.img %}
+                            <img src="{{ sk.img.url }}" alt="Burger" class="img1">
+                        {% endif %}
+                            <br>
+                            <div class="btn-group dropend">
+                                <button type="button" class="btn dropdown"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="material-symbols-outlined text-light">Edit</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{% url 'store:edit_sku' sk.pk %} "
+                                        hx-get="{% url 'store:edit_sku' sk.pk %}"
+                                        hx-target="#count"
+                                        hx-push-url="true"
+                                           class="btn text-capitalize dropdown-item">
+                                            Edit SKU
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'store:del_sku' sk.pk %}"
+                                            hx-get="{% url 'store:del_sku' sk.pk %}"
+                                            hx-target="#count"
+                                            hx-push-url="true"
+                                           class="btn text-capitalize dropdown-item ">
+                                            Delete SKU
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <label class="checkbox-btn">
+                                    <input type="checkbox" name="{{ sk.sku_name }}"
+                                           value="{{ sk.id }}"><span>{{ sk.sku_name }}</span>
+                                </label>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="container text-md-center text-start my-5">
+            <div class="row gy-3">
+                <div class="col-12 col-md-6">
+                    <label for="id_trade">
+                        <p class="text-light">Market:</p>
+                        {{ form.trade }}
+                    </label>
+                </div>
+                <div class="col-12 col-md-6" data-placeholder="Dss">
+                    <label for="id_trade">
+                        <p class="text-light ">Territory:</p>
+                        {{ form.territory }}
+                    </label>
+                </div>
+                <button type="submit" id="submit_all" class="btn fw-medium btn-outline-warning mt-5" value="Save">
+                    Send
+                </button>
+                <a href="{% url 'excel:export' %}"
+                 class="btn fw-medium btn-outline-warning ">Download Vistits</a>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+{% endblock %}

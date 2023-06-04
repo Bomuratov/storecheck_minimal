@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {#<------------form for add Territory---------------->#}
+    <form class="site-form has-background-light" method="post"
+          action="" id="territory"
+          enctype="multipart/form-data"
+          hx-post="{% url 'store:create_territory' %}"
+          hx-target="#count"
+          hx-trigger="click from:#submit_all"
+          >
+        {% csrf_token %}
+        <div class="container-sm">
+            <div class="row justify-content-center">
+                <div class="col-9 col-md-6 col-lg-4">
+                    <div class="bg-transparent text-light form-control">
+                        {{ territory_form.as_p }}
+                        <button type="submit" class="btn btn-info mt-3" id="submit_all"><span class="title">Submit</span>
+                        </button>
+                        <a href="{% url 'store:home' %}"
+                        hx-get="{% url 'store:home' %}"
+                        hx-target="#count"
+                        hax-push-url="true"
+                         type="button" class="btn btn-warning mt-3"><span
+                                class="title">Back</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    {#<------------form-END for add Territory---------------->#}
+{% endblock %}
