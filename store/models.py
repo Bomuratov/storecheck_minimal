@@ -37,6 +37,7 @@ class Visit(models.Model):
     trade = models.ForeignKey(Trade, on_delete=models.CASCADE, related_name='Магазин')
     sku = models.ManyToManyField(Sku, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    comment=models.TextField(null=True)
     visit_date = models.DateField(auto_now=True, null=True)
 
     def __str__(self):

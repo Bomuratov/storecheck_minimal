@@ -7,10 +7,11 @@ class VisitForm(forms.ModelForm):
     trade = forms.Select()
     territory = forms.Select()
     sku = forms.ChoiceField()
+    comment=forms.CharField(widget=forms.Textarea(attrs={'class':'form-control'}), label='Comment')
 
     class Meta:
         model = Visit
-        fields = ['trade', 'territory', 'sku']
+        fields = ['trade', 'territory', 'sku', 'comment']
 
 
 class TerritoryForm(forms.ModelForm):

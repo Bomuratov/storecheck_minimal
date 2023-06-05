@@ -33,6 +33,7 @@ def export_xlsx(request):
         row = i + 2  # Start at row 2
         ws.cell(row=row, column=1, value=visit.territory.territory_name)
         ws.cell(row=row, column=2, value=visit.trade.trade_name)
+        ws.cell(row=row, column=column + 1, value=visit.comment)
 
         # Get all Sku names
         all_sku_names = list(Sku.objects.filter(user=request.user).values_list('sku_name', flat=True))

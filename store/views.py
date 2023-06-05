@@ -13,6 +13,7 @@ def index(request):
     form = VisitForm(request.POST or None, request.FILES or None)
     if request.method == 'POST':
         trade = request.POST.get('trade')
+        comment =request.POST.get('comment')
         territory = request.POST.get('territory')
         user = request.user.id
         sku_names = [x.sku_name for x in Sku.objects.all()]
@@ -24,6 +25,7 @@ def index(request):
             trade_id=trade,
             territory_id=territory,
             user_id=user,
+            comment_id=comment,
         )
         for x in sku_ids:
             visit.sku.add(Sku.objects.get(id=x))
