@@ -17,6 +17,7 @@ def export_xlsx(request):
     # Sku names as column headers
     ws.cell(row=1, column=1, value="Territory")
     ws.cell(row=1, column=2, value="Trade")
+    
     sku_names = list(Sku.objects.filter(user=request.user).values_list('sku_name', flat=True))
 
     for i, sku_name in enumerate(sku_names):

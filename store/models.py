@@ -35,7 +35,7 @@ class Sku(models.Model):
 class Visit(models.Model):
     territory = models.ForeignKey(Territory, on_delete=models.CASCADE, null=True, related_name='Территория')
     trade = models.ForeignKey(Trade, on_delete=models.CASCADE, related_name='Магазин')
-    sku = models.ManyToManyField(Sku, blank=True, null=True)
+    sku = models.ManyToManyField(Sku, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     comment=models.TextField(null=True)
     visit_date = models.DateField(auto_now=True, null=True)

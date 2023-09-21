@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-    {#<------------form for add Territory---------------->#}
+    <!--<------------form for add Territory---------------->
     <form class="site-form has-background-light" method="post"
           action="" id="territory"
           enctype="multipart/form-data"
@@ -19,15 +19,15 @@
                         <button type="submit" class="btn btn-info mt-3" id="submit_all"><span class="title">Submit</span>
                         </button>
                         <a href="{% url 'store:home' %}"
-                        hx-get="{% url 'store:home' %}"
-                        hx-target="#count"
-                        hax-push-url="true"
-                         type="button" class="btn btn-warning mt-3"><span
-                                class="title">Back</span></a>
+                            hx-get="{% url 'store:home' %}"
+                            hx-target="#count"
+                            hx-push-url="true"
+                            type="button" class="btn btn-warning mt-3"><span
+                            class="title">Back</span></a>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    {#<------------form-END for add Territory---------------->#}
+    <!------------form-END for add Territory---------------->
 {% endblock %}
